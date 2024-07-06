@@ -8,9 +8,11 @@ class ModerationCommands(commands.Cog):
 
     @commands.command(name='kick', aliases=['gm'])
     @commands.is_owner()
-    async def kick_cmd(self, ctx: commands.Context, member: discord.Member = None, *, reason: str):
+    async def kick_cmd(self, ctx: commands.Context, member: discord.Member = None, *, reason: str = None):
         if member is None:
             return await ctx.send("`⚠️` : Member is a required value.")
+        if reason is None:
+            reason = "no reason provided"
         try:
             await member.kick(reason=reason)
             embed = discord.Embed(
@@ -33,11 +35,13 @@ class ModerationCommands(commands.Cog):
 
     @commands.command(name='ban')
     @commands.is_owner()
-    async def ban_cmd(self, ctx: commands.Context, member: discord.Member, *, reason: str):
+    async def ban_cmd(self, ctx: commands.Context, member: discord.Member = None, *, reason: str = None):
         if member is None:
             return await ctx.send("`⚠️` : Member is a required value.")
+        if reason is None:
+            reason = "no reason provided"
         try:
-            await member.ban(reason=reason)
+            await member.ban(reason=f"banned by : {ctx.author.name} : {reason}")
             embed = discord.Embed(
                 color=config.color,
                 title=f'Banned.',
@@ -63,7 +67,7 @@ class ModerationCommands(commands.Cog):
             for ban_entry in banned_users:
                 user = ban_entry.user
                 if user.id == member_id:
-                    await ctx.guild.unban(user)
+                    await ctx.guild.unban(user, reason=f"unbanned by : {ctx.author.name}")
                     embed = discord.Embed(
                         color=config.color,
                         title=f'Unbanned.',
@@ -76,6 +80,23 @@ class ModerationCommands(commands.Cog):
             return await ctx.send("`⚠️` User not found in the bans list.")
         except Exception as e:
             return await ctx.send(f"`⚠️` Error: {e}")
+    
+
+    @commands.command(
+        name='purge',
+        aliases=['clear']
+    )
+    @commands.has_permissions(manage_messages=True)
+    async def clearmsgs(self, ctx: commands.Context, amount: int):
+        try:
+            if amount <=0:
+                amount = 10
+            deleted = await ctx.channel.purge(limit=amount +1, reason=f'clear command used by : {ctx.author.name}')
+            return await ctx.reply(f'`🗑️` : Successfully deleted {len(deleted)} messages from {ctx.channel.mention}', delete_after=5)
+        except Exception as e:
+            return await ctx.send(f"`⚠️` Error: {e}")
+
+
 
 async def setup(bot):
     await bot.add_cog(ModerationCommands(bot))

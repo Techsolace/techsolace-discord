@@ -1,6 +1,7 @@
 import os
 import discord
 import jishaku
+import config
 from discord.ext import commands
 
 
@@ -27,5 +28,19 @@ async def on_ready():
                 print(e)
     await bot.load_extension("jishaku")
     print(f'Logged in as {bot.user.name}')
+
+@bot.check
+async def check_owners(ctx: commands.Context):
+    allowed = ["ai", "query", "ping"]
+    
+    if ctx.command.cog_name not in allowed and ctx.author.id not in bot.owner_ids:
+        embed = discord.Embed(
+            color=config.color,
+            description="`❌` You cannot use this command.\nThis bot is restricted to the server owners.\nOnly limited commands are available for the users."
+        )
+        await ctx.send(embed=embed)
+        return False
+    else:
+        return True
 
 bot.run(os.environ.get("TOKEN"))
