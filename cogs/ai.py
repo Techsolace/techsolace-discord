@@ -26,7 +26,10 @@ class GeminiCog(commands.Cog):
             timestamp=datetime.datetime.now()
         )
         embed.set_footer(text='generated with gooogle gemini', icon_url=config.Media.google)
-        await ctx.send(embed=embed)
+        try:
+            await ctx.reply(embed=embed)
+        except:
+            await ctx.send(embed=embed)
 
 
 
