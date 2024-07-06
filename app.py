@@ -32,7 +32,6 @@ async def on_ready():
 @bot.check
 async def check_owners(ctx: commands.Context):
     allowed = ["ai", "query", "ping"]
-    
     if ctx.command.cog_name not in allowed and ctx.author.id not in bot.owner_ids:
         embed = discord.Embed(
             color=config.color,
@@ -40,7 +39,6 @@ async def check_owners(ctx: commands.Context):
         )
         await ctx.reply(embed=embed)
         return False
-    else:
-        return True
+    return True
 
 bot.run(os.environ.get("TOKEN"))
