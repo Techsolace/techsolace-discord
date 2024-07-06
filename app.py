@@ -11,8 +11,8 @@ bot = commands.Bot(
         everyone=False,
         roles=False
     ),
-    help_command=None,
-    status = discord.CustomActivity(name='.gg/techsolace', status=discord.Status.dnd)
+    activity = discord.CustomActivity(name='.gg/techsolace | elevate your brand with our digital mastery', emoji="🎨"),
+    help_command=None
 )
 bot.owner_ids = [1139950107995934863, 680820132355899622, 1148259965946052619]
 

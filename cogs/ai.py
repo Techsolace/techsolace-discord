@@ -20,7 +20,7 @@ class GeminiCog(commands.Cog):
             return await ctx.reply('`⚠️` Error : Prompt is a required parameter..')
         response = await generate_from_prompt(prompt=prompt)
         embed = discord.Embed(
-            color=0x2b2d31,
+            color=config.color,
             description=response,
             title=f'Query : {prompt}',
             timestamp=datetime.datetime.now()
