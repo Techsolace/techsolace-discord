@@ -19,6 +19,8 @@ class GeminiCog(commands.Cog):
         if prompt is None:
             return await ctx.reply('`⚠️` Error : Prompt is a required parameter..')
         response = await generate_from_prompt(prompt=prompt)
+        if len(response) > 6000:
+            response = response[:6000] + '....'
         embed = discord.Embed(
             color=config.color,
             description=response,
