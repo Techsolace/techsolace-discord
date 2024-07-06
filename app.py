@@ -32,7 +32,7 @@ async def on_ready():
 @bot.check
 async def check_owners(ctx: commands.Context):
     allowed = ["ai", "query", "ping"]
-    if ctx.command.cog_name not in allowed and ctx.author.id not in bot.owner_ids:
+    if ctx.command.qualified_name not in allowed and ctx.author.id not in bot.owner_ids:
         embed = discord.Embed(
             color=config.color,
             description=f"`❌` {ctx.author.mention}: You cannot use this command.\nThis bot is restricted to the server owners.\nOnly limited commands are available for the users."
