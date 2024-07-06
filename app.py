@@ -36,9 +36,9 @@ async def check_owners(ctx: commands.Context):
     if ctx.command.cog_name not in allowed and ctx.author.id not in bot.owner_ids:
         embed = discord.Embed(
             color=config.color,
-            description="`❌` You cannot use this command.\nThis bot is restricted to the server owners.\nOnly limited commands are available for the users."
+            description=f"`❌` {ctx.author.mention}: You cannot use this command.\nThis bot is restricted to the server owners.\nOnly limited commands are available for the users."
         )
-        await ctx.send(embed=embed)
+        await ctx.reply(embed=embed)
         return False
     else:
         return True
