@@ -76,3 +76,6 @@ class ModerationCommands(commands.Cog):
             return await ctx.send("`⚠️` User not found in the bans list.")
         except Exception as e:
             return await ctx.send(f"`⚠️` Error: {e}")
+
+async def setup(bot):
+    await bot.add_cog(ModerationCommands(bot))
