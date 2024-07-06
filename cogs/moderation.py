@@ -3,8 +3,8 @@ import config
 from discord.ext import commands
 
 class ModerationCommands(commands.Cog):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, bot):
+        self.bot = bot
 
     @commands.command(name='kick', aliases=['gm'])
     @commands.is_owner()
