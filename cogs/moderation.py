@@ -92,7 +92,7 @@ class ModerationCommands(commands.Cog):
             if amount <=0:
                 amount = 10
             deleted = await ctx.channel.purge(limit=amount +1, reason=f'clear command used by : {ctx.author.name}')
-            return await ctx.reply(f'`🗑️` : Successfully deleted {len(deleted)} messages from {ctx.channel.mention}', delete_after=5)
+            return await ctx.send(f'`🗑️` : Successfully deleted {len(deleted)} messages from {ctx.channel.mention}', delete_after=5)
         except Exception as e:
             return await ctx.send(f"`⚠️` Error: {e}")
 
