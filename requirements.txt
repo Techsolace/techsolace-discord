@@ -1,3 +1,4 @@
 google-generativeai
 discord.py
 jishaku
+python-dotenv
