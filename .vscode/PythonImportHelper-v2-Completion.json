@@ -177,7 +177,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "bot.owner_ids = [1139950107995934863, 680820132355899622, 1148259965946052619]\n@bot.event\nasync def on_ready():\n    for files in os.listdir('./cogs'):\n        if files.endswith(\".py\"):\n            try:\n                await bot.load_extension(f'cogs.{files[:-3]}')\n                print(f'Loaded {files}')\n            except Exception as e:\n                print(e)",
+        "peekOfCode": "bot.owner_ids = [1139950107995934863, 680820132355899622, 1148259965946052619]\n@bot.event\nasync def on_ready():\n    channel = bot.get_channel(1248259219644354572)\n    for files in os.listdir('./cogs'):\n        if files.endswith(\".py\"):\n            try:\n                await bot.load_extension(f'cogs.{files[:-3]}')\n                print(f'Loaded {files}')\n            except Exception as e:",
         "detail": "app",
         "documentation": {}
     },
