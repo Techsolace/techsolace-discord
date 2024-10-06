@@ -50,6 +50,14 @@
         "documentation": {}
     },
     {
+        "label": "commands",
+        "importPath": "discord.ext",
+        "description": "discord.ext",
+        "isExtraImport": true,
+        "detail": "discord.ext",
+        "documentation": {}
+    },
+    {
         "label": "config",
         "kind": 6,
         "isExtraImport": true,
@@ -64,6 +72,15 @@
         "description": "utils.tools",
         "isExtraImport": true,
         "detail": "utils.tools",
+        "documentation": {}
+    },
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
         "documentation": {}
     },
     {
@@ -111,6 +128,15 @@
         "documentation": {}
     },
     {
+        "label": "Events",
+        "kind": 6,
+        "importPath": "cogs.event",
+        "description": "cogs.event",
+        "peekOfCode": "class Events(commands.Cog):\n    def __init__(self, bot: commands.Bot):\n        self.bot = bot\n    @commands.Cog.listener(\"on_member_join\")\n    async def on_member_join(self, member: discord.Member):\n        channel = self.bot.get_channel(1247301224534114387)\n        emotes = member.guild.emojis\n        if emotes:\n            emote = random.choice(emotes)\n            await channel.send(f\"{emote} Hey {member.mention}, Welcome to {member.guild.name}.\")",
+        "detail": "cogs.event",
+        "documentation": {}
+    },
+    {
         "label": "ModerationCommands",
         "kind": 6,
         "importPath": "cogs.moderation",
@@ -124,7 +150,7 @@
         "kind": 6,
         "importPath": "cogs.utils",
         "description": "cogs.utils",
-        "peekOfCode": "class UtilCommands(commands.Cog):\n    def __init__(self, bot):\n        self.bot = bot\n    @commands.command(name='ping')\n    async def ping(self, ctx: commands.Context):\n        await ctx.send(f\"🏓 Pong : {round(self.bot.latency * 1000)} ms\")\nasync def setup(bot):\n    await bot.add_cog(UtilCommands(bot))",
+        "peekOfCode": "class UtilCommands(commands.Cog):\n    def __init__(self, bot):\n        self.bot = bot\n    @commands.command(name='ping')\n    async def ping(self, ctx: commands.Context):\n        await ctx.send(f\"🏓 Pong : {round(self.bot.latency * 1000)} ms\")\n    @commands.command(name='membercount', aliases=['mc'])\n    async def mc(self, ctx: commands.Context):\n        embed = discord.Embed(\n            color=config.color,",
         "detail": "cogs.utils",
         "documentation": {}
     },
@@ -151,7 +177,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "bot.owner_ids = [1139950107995934863, 680820132355899622, 1148259965946052619]\n@bot.event\nasync def on_ready():\n    channel = bot.get_channel(1248259219644354572)\n    await channel.connect(reconnect=True)\n    for files in os.listdir('./cogs'):\n        if files.endswith(\".py\"):\n            try:\n                await bot.load_extension(f'cogs.{files[:-3]}')\n            except Exception as e:",
+        "peekOfCode": "bot.owner_ids = [1139950107995934863, 680820132355899622, 1148259965946052619]\n@bot.event\nasync def on_ready():\n    for files in os.listdir('./cogs'):\n        if files.endswith(\".py\"):\n            try:\n                await bot.load_extension(f'cogs.{files[:-3]}')\n                print(f'Loaded {files}')\n            except Exception as e:\n                print(e)",
         "detail": "app",
         "documentation": {}
     },

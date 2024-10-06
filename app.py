@@ -22,12 +22,11 @@ bot.owner_ids = [1139950107995934863, 680820132355899622, 1148259965946052619]
 
 @bot.event
 async def on_ready():
-    channel = bot.get_channel(1248259219644354572)
-    await channel.connect(reconnect=True)
     for files in os.listdir('./cogs'):
         if files.endswith(".py"):
             try:
                 await bot.load_extension(f'cogs.{files[:-3]}')
+                print(f'Loaded {files}')
             except Exception as e:
                 print(e)
     await bot.load_extension("jishaku")
