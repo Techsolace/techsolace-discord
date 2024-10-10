@@ -13,4 +13,4 @@ class Tasks(commands.Cog):
             await channel.edit(name=f"members : {guild.member_count}")
 
 async def setup(bot):
-    bot.add_cog(Tasks(bot))
+    await bot.add_cog(Tasks(bot))
