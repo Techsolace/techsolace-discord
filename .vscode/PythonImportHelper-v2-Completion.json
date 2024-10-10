@@ -50,6 +50,22 @@
         "documentation": {}
     },
     {
+        "label": "tasks",
+        "importPath": "discord.ext",
+        "description": "discord.ext",
+        "isExtraImport": true,
+        "detail": "discord.ext",
+        "documentation": {}
+    },
+    {
+        "label": "commands",
+        "importPath": "discord.ext",
+        "description": "discord.ext",
+        "isExtraImport": true,
+        "detail": "discord.ext",
+        "documentation": {}
+    },
+    {
         "label": "commands",
         "importPath": "discord.ext",
         "description": "discord.ext",
@@ -143,6 +159,15 @@
         "description": "cogs.moderation",
         "peekOfCode": "class ModerationCommands(commands.Cog):\n    def __init__(self, bot):\n        self.bot = bot\n    @commands.command(name='kick', aliases=['gm'])\n    @commands.is_owner()\n    async def kick_cmd(self, ctx: commands.Context, member: discord.Member = None, *, reason: str = None):\n        if member is None:\n            return await ctx.send(\"`⚠️` : Member is a required value.\")\n        if reason is None:\n            reason = \"no reason provided\"",
         "detail": "cogs.moderation",
+        "documentation": {}
+    },
+    {
+        "label": "Tasks",
+        "kind": 6,
+        "importPath": "cogs.tasks",
+        "description": "cogs.tasks",
+        "peekOfCode": "class Tasks(commands.Cog):\n    def __init__(self, bot: commands.Bot):\n        self.bot = bot\n    @tasks.loop(seconds=180)\n    async def update_server_stats(self):\n        guild = self.bot.get_guild(1237816968443334740)\n        if guild is not None:\n            channel = guild.get_channel(1292620756630507560)\n            await channel.edit(name=f\"members : {guild.member_count}\")\nasync def setup(bot):",
+        "detail": "cogs.tasks",
         "documentation": {}
     },
     {
