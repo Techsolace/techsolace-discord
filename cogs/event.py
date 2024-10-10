@@ -9,7 +9,7 @@ class Events(commands.Cog):
 
     @commands.Cog.listener("on_member_join")
     async def on_member_join(self, member: discord.Member):
-        channel = self.bot.get_channel(1247301224534114387)
+        channel = self.bot.get_channel(1293785043109548052)
         emotes = member.guild.emojis
         if emotes:
             emote = random.choice(emotes)

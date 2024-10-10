@@ -148,7 +148,7 @@
         "kind": 6,
         "importPath": "cogs.event",
         "description": "cogs.event",
-        "peekOfCode": "class Events(commands.Cog):\n    def __init__(self, bot: commands.Bot):\n        self.bot = bot\n    @commands.Cog.listener(\"on_member_join\")\n    async def on_member_join(self, member: discord.Member):\n        channel = self.bot.get_channel(1247301224534114387)\n        emotes = member.guild.emojis\n        if emotes:\n            emote = random.choice(emotes)\n            await channel.send(f\"{emote} Hey {member.mention}, Welcome to {member.guild.name}.\")",
+        "peekOfCode": "class Events(commands.Cog):\n    def __init__(self, bot: commands.Bot):\n        self.bot = bot\n    @commands.Cog.listener(\"on_member_join\")\n    async def on_member_join(self, member: discord.Member):\n        channel = self.bot.get_channel(1293785043109548052)\n        emotes = member.guild.emojis\n        if emotes:\n            emote = random.choice(emotes)\n            await channel.send(f\"{emote} Hey {member.mention}, Welcome to {member.guild.name}.\")",
         "detail": "cogs.event",
         "documentation": {}
     },
