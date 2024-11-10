@@ -32,7 +32,7 @@ class Events(commands.Cog):
             await channel.send(f"{emote} Hey {member.mention}, Welcome to {member.guild.name}.")
         else:
             await channel.send(f"👋 Hey {member.mention}, Welcome to {member.guild.name}.")
-        welcome_channel.send(embed=embed)
+        await welcome_channel.send(embed=embed)
 
 async def setup(bot):
     await bot.add_cog(Events(bot))
