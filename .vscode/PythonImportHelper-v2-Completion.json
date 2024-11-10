@@ -148,7 +148,7 @@
         "kind": 6,
         "importPath": "cogs.event",
         "description": "cogs.event",
-        "peekOfCode": "class Events(commands.Cog):\n    def __init__(self, bot: commands.Bot):\n        self.bot = bot\n    @commands.Cog.listener(\"on_member_join\")\n    async def on_member_join(self, member: discord.Member):\n        channel = self.bot.get_channel(1293785043109548052)\n        emotes = member.guild.emojis\n        if emotes:\n            emote = random.choice(emotes)\n            await channel.send(f\"{emote} Hey {member.mention}, Welcome to {member.guild.name}.\")",
+        "peekOfCode": "class Events(commands.Cog):\n    def __init__(self, bot: commands.Bot):\n        self.bot = bot\n    @commands.Cog.listener(\"on_member_join\")\n    async def on_member_join(self, member: discord.Member):\n        welcome_channel = self.bot.get_channel(1305282955886989342)\n        channel = self.bot.get_channel(1305285670192939128)\n        emotes = member.guild.emojis\n        embed = discord.Embed(\n            color=config.color,",
         "detail": "cogs.event",
         "documentation": {}
     },
@@ -211,7 +211,16 @@
         "kind": 6,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "class Media:\n    google = \"https://static-00.iconduck.com/assets.00/google-icon-2048x2048-pks9lbdv.png\"",
+        "peekOfCode": "class Media:\n    google = \"https://static-00.iconduck.com/assets.00/google-icon-2048x2048-pks9lbdv.png\"\n    welcome_banner = \"https://media.discordapp.net/attachments/1281676983603957864/1305295217393405983/welcome.png?ex=67328267&is=673130e7&hm=7d11ba70e3a448e5190279f2c2dc5c544c3613b47195c3e7a5bc0ca1403c9df1&=&format=webp&quality=lossless&width=719&height=179\"\nclass Links:\n    rules = \"https://discord.com/channels/1237816968443334740/1247300443265171456\"\n    annc = \"https://discord.com/channels/1237816968443334740/1305290241145311364\"\n    chat = \"https://discord.com/channels/1237816968443334740/1305285670192939128\"",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "Links",
+        "kind": 6,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "class Links:\n    rules = \"https://discord.com/channels/1237816968443334740/1247300443265171456\"\n    annc = \"https://discord.com/channels/1237816968443334740/1305290241145311364\"\n    chat = \"https://discord.com/channels/1237816968443334740/1305285670192939128\"",
         "detail": "config",
         "documentation": {}
     },
@@ -220,7 +229,7 @@
         "kind": 5,
         "importPath": "config",
         "description": "config",
-        "peekOfCode": "color = 0x77cdff\nclass Media:\n    google = \"https://static-00.iconduck.com/assets.00/google-icon-2048x2048-pks9lbdv.png\"",
+        "peekOfCode": "color = 0x77cdff\nclass Media:\n    google = \"https://static-00.iconduck.com/assets.00/google-icon-2048x2048-pks9lbdv.png\"\n    welcome_banner = \"https://media.discordapp.net/attachments/1281676983603957864/1305295217393405983/welcome.png?ex=67328267&is=673130e7&hm=7d11ba70e3a448e5190279f2c2dc5c544c3613b47195c3e7a5bc0ca1403c9df1&=&format=webp&quality=lossless&width=719&height=179\"\nclass Links:\n    rules = \"https://discord.com/channels/1237816968443334740/1247300443265171456\"\n    annc = \"https://discord.com/channels/1237816968443334740/1305290241145311364\"\n    chat = \"https://discord.com/channels/1237816968443334740/1305285670192939128\"",
         "detail": "config",
         "documentation": {}
     }
