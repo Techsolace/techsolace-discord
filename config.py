@@ -1,4 +1,4 @@
-color = 0x294d8b
+color = 0x77cdff
 
 class Media:
     google = "https://static-00.iconduck.com/assets.00/google-icon-2048x2048-pks9lbdv.png"
