@@ -22,7 +22,7 @@ class Events(commands.Cog):
         )
         embed.set_author(
             name=member.name,
-            icon_url=member.avatar_url
+            icon_url=member.avatar.url
         )
         embed.set_image(
             url=config.Media.welcome_banner
