@@ -27,6 +27,7 @@ class GeminiCog(commands.Cog):
             title=f'Query : {prompt}',
             timestamp=datetime.datetime.now()
         )
+        embed.set_author(name=ctx.author.name, icon_url=ctx.author.avatar.url)
         embed.set_footer(text='generated with gooogle gemini', icon_url=config.Media.google)
         try:
             await ctx.reply(embed=embed)
