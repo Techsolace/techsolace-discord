@@ -16,9 +16,9 @@ class Events(commands.Cog):
             color=config.color,
             title=f'Welcome to {member.guild.name}!',
             description=
-            f'> 📕 Read the [Rules]({config.Links.rules})\n'
-            f'> 📢 Meet new people [Roles]({config.Links.chat})\n'
-            f'> 🎉 Keep an eye in the [Updates]({config.Links.annc})\n'
+            f'> 📕 Read the [RULES]({config.Links.rules})\n'
+            f'> 📢 Meet new people [CHAT]({config.Links.chat})\n'
+            f'> 🎉 Keep an eye in the [UPDATES]({config.Links.annc})\n'
         )
         embed.set_author(
             name=member.name,
