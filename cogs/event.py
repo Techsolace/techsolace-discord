@@ -29,9 +29,9 @@ class Events(commands.Cog):
         )
         if emotes:
             emote = random.choice(emotes)
-            await channel.send(f"{emote} Hey {member.mention}, Welcome to {member.guild.name}.")
+            await channel.send(f"{emote} Hey {member.mention}, Welcome to **{member.guild.name}**.")
         else:
-            await channel.send(f"👋 Hey {member.mention}, Welcome to {member.guild.name}.")
+            await channel.send(f"👋 Hey {member.mention}, Welcome to **{member.guild.name}**.")
         await welcome_channel.send(embed=embed)
 
 async def setup(bot):
