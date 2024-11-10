@@ -166,7 +166,7 @@
         "kind": 6,
         "importPath": "cogs.tasks",
         "description": "cogs.tasks",
-        "peekOfCode": "class Tasks(commands.Cog):\n    def __init__(self, bot: commands.Bot):\n        self.bot = bot\n        self.update_server_stats.start()\n    @tasks.loop(seconds=180)\n    async def update_server_stats(self):\n        guild = self.bot.get_guild(1237816968443334740)\n        if guild is not None:\n            channel = guild.get_channel(1292620756630507560)\n            await channel.edit(name=f\"members : {guild.member_count}\")",
+        "peekOfCode": "class Tasks(commands.Cog):\n    def __init__(self, bot: commands.Bot):\n        self.bot = bot\n        self.update_server_stats.start()\nasync def setup(bot):\n    await bot.add_cog(Tasks(bot))",
         "detail": "cogs.tasks",
         "documentation": {}
     },
